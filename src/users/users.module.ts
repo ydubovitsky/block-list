@@ -1,9 +1,12 @@
 import {Module} from '@nestjs/common';
 import {UsersService} from './users.service';
 import {DbModule} from 'src/db/db.module';
+import { AccountModule } from 'src/account/account.module';
+import { AccountService } from 'src/account/account.service';
+import { BlockListModule } from 'src/block-list/block-list.module';
 
 @Module({
-  imports: [DbModule],
+  imports: [DbModule, AccountModule, BlockListModule],
   providers: [UsersService],
   exports: [UsersService],
 })
